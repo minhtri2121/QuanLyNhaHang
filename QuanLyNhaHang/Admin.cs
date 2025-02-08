@@ -17,6 +17,8 @@ namespace QuanLyNhaHang
             LoadQuanLiKho();
 
             LoadListFood();
+
+            AddFoddBinding();
         }
 
         void LoadAccountList()
@@ -69,7 +71,7 @@ namespace QuanLyNhaHang
 
             SqlConnection conn = new SqlConnection(connectionString);
 
-            string query = "SELECT NHOM_MON.IDNhomMon, MON.IDMon, TuKhoa, TenMon, TenNhomMon , TenDVT, FORMAT(Gia, 'N0') + ' VNĐ' AS GiaTien\r\nFROM MON \r\nJOIN NHOM_MON ON MON.IDNhomMon = NHOM_MON.IDNhomMon\r\nJOIN DON_VI_TINH ON MON.IDDVT = DON_VI_TINH.IDDVT;";
+            string query = "SELECT TuKhoa, TenMon, TenNhomMon , TenDVT, FORMAT(Gia,'N0') AS GiaTien\r\nFROM MON \r\nJOIN NHOM_MON ON MON.IDNhomMon = NHOM_MON.IDNhomMon\r\nJOIN DON_VI_TINH ON MON.IDDVT = DON_VI_TINH.IDDVT;";
 
             conn.Open();
 
@@ -85,7 +87,13 @@ namespace QuanLyNhaHang
 
             dtgvMonAn.DataSource = data;
         }
-
-       
+        void AddFoddBinding()
+        {
+            txtTenMon.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenMon"));
+            txtTuKhoa.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TuKhoa"));
+            cbNhomMon.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenNhomMon"));
+            cbDVT.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenDVT"));
+            nmGia.DataBindings.Add(new Binding("Value", dtgvMonAn.DataSource, "GiaTien"));
+        }
     }
 }
