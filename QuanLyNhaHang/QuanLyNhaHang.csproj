@@ -108,6 +108,7 @@
     <Compile Include="DTO\DVT.cs" />
     <Compile Include="DTO\Food.cs" />
     <Compile Include="DTO\Table.cs" />
+    <Compile Include="DTO\tim.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

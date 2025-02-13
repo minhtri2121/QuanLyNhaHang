@@ -26,7 +26,8 @@ namespace QuanLyNhaHang.DTO
             this.Name = row["TenMon"].ToString();
             this.Idnhom = row["IDNhomMon"].ToString();
             this.Iddvt = (int)row["IDDVT"];
-            this.Gia = (float)Convert.ToDouble(row["Gia"]);
+            this.Gia = row["Gia"] != DBNull.Value ? Convert.ToSingle(row["Gia"]) : 0;
+
         }
 
         private int id;

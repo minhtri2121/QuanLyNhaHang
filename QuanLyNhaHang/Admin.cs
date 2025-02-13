@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Data.SqlClient;
@@ -11,7 +12,7 @@ namespace QuanLyNhaHang
 {
     public partial class fAdmin : Form
     {
-        BindingSource FoodList = new BindingSource();
+        BindingSource Foodlist = new BindingSource();
 
         BindingSource accountList = new BindingSource();
 
@@ -27,9 +28,15 @@ namespace QuanLyNhaHang
 
         #region methods
 
+        List<Food> SearchFoodByName(string tenmon)
+        {
+            List<Food> listFood = FoodDAO.Instance.SearchFoodByName(tenmon);
+            return listFood;
+        }
+
         private void LoadAdmin()
         {
-            dtgvMonAn.DataSource = FoodList;
+            dtgvMonAn.DataSource = Foodlist;
 
             dtgvTaiKhoan.DataSource = accountList;
 
@@ -63,7 +70,7 @@ namespace QuanLyNhaHang
         {
             string query = "SELECT TuKhoa, TenMon, TenNhomMon , TenDVT,FORMAT ( Gia ,'0') AS GiaTien\r\nFROM MON \r\nJOIN NHOM_MON ON MON.IDNhomMon = NHOM_MON.IDNhomMon\r\nJOIN DON_VI_TINH ON MON.IDDVT = DON_VI_TINH.IDDVT;";
 
-            FoodList.DataSource = DataProvider.Instance.ExcuteQuery(query);
+            Foodlist.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
         void LoadQuanLiKho() //không dùng cái này
         {
@@ -149,7 +156,6 @@ namespace QuanLyNhaHang
             cb.DisplayMember = "Name";
         }
 
-        #endregion
 
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -170,14 +176,12 @@ namespace QuanLyNhaHang
             }            
         }
 
-    
-
         private void btnSua_Click(object sender, EventArgs e)
         {
             string tukhoa = txtTuKhoa.Text;
             string tenmon = txtTenMon.Text;
             int idnhommon = (cbNhomMon.SelectedItem as Category).Id;
-                int iddvt = (cbDVT.SelectedItem as DVT).Id;
+            int iddvt = (cbDVT.SelectedItem as DVT).Id;
             float Gia = (float)nmGia.Value;
 
             if (FoodDAO.Instance.InsertFood(tukhoa, tenmon, iddvt, idnhommon, (int)Gia))
@@ -187,11 +191,28 @@ namespace QuanLyNhaHang
             }
             else
             {
-                MessageBox.Show("Có lỗi khi Sửa món ăn.");
+                MessageBox.Show("Có lỗi khi sửa món ăn.");
             }
         }
 
-        #endregion
+        
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+
+            List<Tim> listTimFood = FoodDAO.Instance.Gettim(txtScFoodName.Text);
+            if (listTimFood != null && listTimFood.Count > 0)
+            {
+                dtgvMonAn.DataSource = typeof(List<Tim>);
+                dtgvMonAn.DataSource = listTimFood;
+
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy món ăn nào.");
+            }
+
+        }
 
         private void btnXemTK_Click(object sender, EventArgs e)
         {
@@ -227,5 +248,9 @@ namespace QuanLyNhaHang
             string userName = txtTenTk.Text;
             ResetPass(userName);
         }
+
+
+        #endregion
+
     }
 }
