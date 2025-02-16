@@ -56,32 +56,29 @@ namespace QuanLyNhaHang.DAO
             DataProvider.Instance.ExcuteNonQuery(query);
         }
 
-        public DataTable GetBillByDate(string date1, string date2)
+        public DataTable GetBillByDate(DateTime date1, DateTime date2)
         {
             string query = "EXEC DoanhThuByNgay @fisrtDate , @finalDate ";
 
-            return DataProvider.Instance.ExcuteQuery(query, new object[] { date1, date2 });
+            return DataProvider.Instance.ExcuteQuery(query, new object[] {date1, date2});
         }
 
-
-        public DataTable GetBillByNguoiDung(string date1, string date2, string NguoiDung)
+        public DataTable GetBillByNguoiDung(string NguoiDung)
         {
-            string query = "EXEC DoanhThuByNguoiDung @fisrtDate , @finalDate , @tenNguoiDung ";
+            string query = "EXEC DoanhThuByNguoiDung @idNguoiDung ";
 
-            return DataProvider.Instance.ExcuteQuery(query, new object[] { date1, date2, NguoiDung });
+            return DataProvider.Instance.ExcuteQuery(query, new object[] { NguoiDung });
         }
-        public DataTable GetBillByTenBan(string date1, string date2, string tenBan)
+        public DataTable GetBillByTenBan(string tenBan)
         {
-            string query = "EXEC DoanhThuByBan @fisrtDate , @finalDate , @tenBan ";
+            string query = "EXEC DoanhThuByBan @tenBan ";
 
-            return DataProvider.Instance.ExcuteQuery(query, new object[] { date1, date2, tenBan });
+            return DataProvider.Instance.ExcuteQuery(query, new object[] { tenBan });
         }
 
-        public DataTable GetBillByAll(string date1, string date2, string tenBan, string NguoiDung)
+        internal void CheckOut(int idBill, int giamGia, double? tongTien)
         {
-
-            string query = "EXEC DoanhThuByBanAndNguoiDung @fisrtDate , @finalDate  , @tenBan , @tenNguoiDung ";
-            return DataProvider.Instance.ExcuteQuery(query, new object[] { date1, date2, tenBan, NguoiDung });
+            throw new NotImplementedException();
         }
     }
 }
