@@ -115,6 +115,7 @@
     <Compile Include="DTO\Food.cs" />
     <Compile Include="DTO\Items.cs" />
     <Compile Include="DTO\Menu.cs" />
+    <Compile Include="DTO\SearchCategory.cs" />
     <Compile Include="DTO\SearchFood.cs" />
     <Compile Include="DTO\Table.cs" />
     <Compile Include="DTO\Zone.cs" />
