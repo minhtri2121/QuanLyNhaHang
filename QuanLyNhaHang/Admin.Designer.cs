@@ -94,6 +94,9 @@
             this.btnAddTableFood = new System.Windows.Forms.Button();
             this.tpTaiKhoan = new System.Windows.Forms.TabPage();
             this.panel21 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.txtIDNguoiDung = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.btnRePass = new System.Windows.Forms.Button();
             this.panel22 = new System.Windows.Forms.Panel();
             this.nmLoaiTK = new System.Windows.Forms.NumericUpDown();
@@ -132,9 +135,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.txtIDNguoiDung = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.tcAdmin.SuspendLayout();
             this.tpDoanhThu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -164,6 +164,7 @@
             this.panel12.SuspendLayout();
             this.tpTaiKhoan.SuspendLayout();
             this.panel21.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.panel22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmLoaiTK)).BeginInit();
             this.panel23.SuspendLayout();
@@ -179,7 +180,6 @@
             this.gbPhieuNhap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPhieuNhap)).BeginInit();
             this.panel11.SuspendLayout();
-            this.panel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -342,7 +342,7 @@
             // btnTuyChon
             // 
             this.btnTuyChon.Location = new System.Drawing.Point(308, 491);
-            this.btnTuyChon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTuyChon.Margin = new System.Windows.Forms.Padding(4);
             this.btnTuyChon.Name = "btnTuyChon";
             this.btnTuyChon.Size = new System.Drawing.Size(231, 76);
             this.btnTuyChon.TabIndex = 6;
@@ -876,6 +876,35 @@
             this.panel21.Size = new System.Drawing.Size(435, 340);
             this.panel21.TabIndex = 10;
             // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.txtIDNguoiDung);
+            this.panel13.Controls.Add(this.label11);
+            this.panel13.Location = new System.Drawing.Point(3, 2);
+            this.panel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(429, 60);
+            this.panel13.TabIndex = 13;
+            // 
+            // txtIDNguoiDung
+            // 
+            this.txtIDNguoiDung.Location = new System.Drawing.Point(211, 18);
+            this.txtIDNguoiDung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtIDNguoiDung.Name = "txtIDNguoiDung";
+            this.txtIDNguoiDung.ReadOnly = true;
+            this.txtIDNguoiDung.Size = new System.Drawing.Size(199, 22);
+            this.txtIDNguoiDung.TabIndex = 2;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(20, 18);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(138, 24);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Mã tài khoản:";
+            // 
             // btnRePass
             // 
             this.btnRePass.Location = new System.Drawing.Point(301, 265);
@@ -1179,7 +1208,7 @@
             // 
             // btnTaoPhieuNhap
             // 
-            this.btnTaoPhieuNhap.Location = new System.Drawing.Point(568, 26);
+            this.btnTaoPhieuNhap.Location = new System.Drawing.Point(418, 17);
             this.btnTaoPhieuNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTaoPhieuNhap.Name = "btnTaoPhieuNhap";
             this.btnTaoPhieuNhap.Size = new System.Drawing.Size(173, 36);
@@ -1289,35 +1318,6 @@
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
             // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.txtIDNguoiDung);
-            this.panel13.Controls.Add(this.label11);
-            this.panel13.Location = new System.Drawing.Point(3, 2);
-            this.panel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(429, 60);
-            this.panel13.TabIndex = 13;
-            // 
-            // txtIDNguoiDung
-            // 
-            this.txtIDNguoiDung.Location = new System.Drawing.Point(211, 18);
-            this.txtIDNguoiDung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtIDNguoiDung.Name = "txtIDNguoiDung";
-            this.txtIDNguoiDung.ReadOnly = true;
-            this.txtIDNguoiDung.Size = new System.Drawing.Size(199, 22);
-            this.txtIDNguoiDung.TabIndex = 2;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(20, 18);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(138, 24);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Mã tài khoản:";
-            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1370,6 +1370,8 @@
             this.panel12.ResumeLayout(false);
             this.tpTaiKhoan.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             this.panel22.ResumeLayout(false);
             this.panel22.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmLoaiTK)).EndInit();
@@ -1390,8 +1392,6 @@
             this.gbPhieuNhap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPhieuNhap)).EndInit();
             this.panel11.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
             this.ResumeLayout(false);
 
         }
